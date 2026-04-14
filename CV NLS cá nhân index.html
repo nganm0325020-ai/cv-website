@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Ngoc Kim Ngan | Animal Science & Veterinary Portfolio</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Sage Green Color Palette */
+        :root {
+            --sage: #7C8C6E;
+            --sage-light: #A8B89C;
+            --sage-bg: #E8EDE4;
+            --cream: #F7F6F1;
+            --dark: #2D3A2E;
+        }
+
+        /* Fade-up animation on scroll */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--sage-light); border-radius: 3px; }
+
+        /* Floating paw animation */
+        @keyframes floatPaw {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.07; }
+            50% { transform: translateY(-15px) rotate(8deg); opacity: 0.12; }
+        }
+        .paw-float {
+            animation: floatPaw 6s ease-in-out infinite;
+        }
+        .paw-float-delay {
+            animation: floatPaw 8s ease-in-out 2s infinite;
+        }
+        .paw-float-delay2 {
+            animation: floatPaw 7s ease-in-out 4s infinite;
+        }
+
+        /* DNA helix animation */
+        @keyframes rotateDNA {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .dna-spin {
+            animation: rotateDNA 20s linear infinite;
+        }
+
+        /* Heartbeat pulse for stethoscope */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.05); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.08); }
+            56% { transform: scale(1); }
+        }
+        .heartbeat {
+            animation: heartbeat 3s ease-in-out infinite;
+        }
+
+        /* Subtle gradient overlay for vet theme */
+        .vet-gradient {
+            background: linear-gradient(135deg, rgba(168, 184, 156, 0.08) 0%, rgba(124, 140, 110, 0.04) 50%, rgba(232, 237, 228, 0.08) 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-[#F7F6F1] text-[#2D3A2E] relative overflow-x-hidden">
+
+    <!-- ===================== VETERINARY DECORATIVE ELEMENTS (Background) ===================== -->
+    <!-- Floating paw prints scattered across the page -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <!-- Paw Print 1 - Top Right -->
+        <svg class="paw-float absolute top-20 right-10 w-16 h-16 text-[#7C8C6E] opacity-[0.07]" viewBox="0 0 100 100" fill="currentColor">
+            <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+            <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+            <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+            <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+            <ellipse cx="50" cy="62" rx="20" ry="22"/>
+        </svg>
+
+        <!-- Paw Print 2 - Left middle -->
+        <svg class="paw-float-delay absolute top-[40%] left-6 w-12 h-12 text-[#A8B89C] opacity-[0.06]" viewBox="0 0 100 100" fill="currentColor">
+            <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+            <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+            <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+            <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+            <ellipse cx="50" cy="62" rx="20" ry="22"/>
+        </svg>
+
+        <!-- Paw Print 3 - Bottom right -->
+        <svg class="paw-float-delay2 absolute top-[70%] right-16 w-14 h-14 text-[#7C8C6E] opacity-[0.05]" viewBox="0 0 100 100" fill="currentColor">
+            <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+            <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+            <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+            <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+            <ellipse cx="50" cy="62" rx="20" ry="22"/>
+        </svg>
+
+        <!-- DNA Helix - subtle background -->
+        <svg class="dna-spin absolute top-[15%] left-[85%] w-32 h-32 text-[#A8B89C] opacity-[0.04]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M30 10 C30 30, 70 30, 70 50 C70 70, 30 70, 30 90"/>
+            <path d="M70 10 C70 30, 30 30, 30 50 C30 70, 70 70, 70 90"/>
+            <line x1="35" y1="20" x2="65" y2="20"/>
+            <line x1="42" y1="35" x2="58" y2="35"/>
+            <line x1="42" y1="50" x2="58" y2="50"/>
+            <line x1="42" y1="65" x2="58" y2="65"/>
+            <line x1="35" y1="80" x2="65" y2="80"/>
+        </svg>
+
+        <!-- DNA Helix 2 -->
+        <svg class="dna-spin absolute top-[55%] left-[5%] w-24 h-24 text-[#7C8C6E] opacity-[0.04]" style="animation-direction: reverse;" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M30 10 C30 30, 70 30, 70 50 C70 70, 30 70, 30 90"/>
+            <path d="M70 10 C70 30, 30 30, 30 50 C30 70, 70 70, 70 90"/>
+            <line x1="35" y1="20" x2="65" y2="20"/>
+            <line x1="42" y1="35" x2="58" y2="35"/>
+            <line x1="42" y1="50" x2="58" y2="50"/>
+            <line x1="42" y1="65" x2="58" y2="65"/>
+            <line x1="35" y1="80" x2="65" y2="80"/>
+        </svg>
+    </div>
+
+
+    <!-- ===================== HEADER / STICKY NAVIGATION ===================== -->
+    <nav id="navbar" class="sticky top-0 z-50 bg-[#F7F6F1]/85 backdrop-blur-md border-b border-[#E8EDE4] transition-shadow duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo with vet icon -->
+            <a href="#hero" class="flex items-center gap-2 text-lg font-bold tracking-tight text-[#2D3A2E]">
+                <!-- Small stethoscope icon -->
+                <svg class="w-5 h-5 text-[#7C8C6E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>
+                    <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/>
+                    <circle cx="20" cy="10" r="2"/>
+                </svg>
+                KIM <span class="text-[#7C8C6E]">NGAN</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-[#555]">
+                <li><a href="#about" class="hover:text-[#7C8C6E] transition-colors duration-200">About</a></li>
+                <li><a href="#skills" class="hover:text-[#7C8C6E] transition-colors duration-200">Skills</a></li>
+                <li><a href="#experience" class="hover:text-[#7C8C6E] transition-colors duration-200">Experience</a></li>
+                <li><a href="#education" class="hover:text-[#7C8C6E] transition-colors duration-200">Education</a></li>
+                <li><a href="#contact" class="hover:text-[#7C8C6E] transition-colors duration-200">Contact</a></li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-[#E8EDE4] transition">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-[#E8EDE4]">
+            <ul class="flex flex-col items-center gap-4 py-6 text-sm font-medium text-[#555]">
+                <li><a href="#about" class="mobile-link hover:text-[#7C8C6E]">About</a></li>
+                <li><a href="#skills" class="mobile-link hover:text-[#7C8C6E]">Skills</a></li>
+                <li><a href="#experience" class="mobile-link hover:text-[#7C8C6E]">Experience</a></li>
+                <li><a href="#education" class="mobile-link hover:text-[#7C8C6E]">Education</a></li>
+                <li><a href="#contact" class="mobile-link hover:text-[#7C8C6E]">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <section id="hero" class="relative max-w-6xl mx-auto px-6 py-16 md:py-28">
+        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <!-- Left: Introduction -->
+            <div class="md:w-3/5 space-y-6 text-center md:text-left relative z-10">
+                <div class="flex items-center gap-2 justify-center md:justify-start">
+                    <span class="text-sm font-medium tracking-widest uppercase text-[#7C8C6E]">Animal Science & Veterinary Candidate</span>
+                    <!-- Small paw icon -->
+                    <svg class="w-4 h-4 text-[#A8B89C]" viewBox="0 0 100 100" fill="currentColor">
+                        <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+                        <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+                        <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+                        <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+                        <ellipse cx="50" cy="62" rx="20" ry="22"/>
+                    </svg>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
+                    Hello, I'm
+                    <br>
+                    <span class="font-playfair font-bold text-[#2D3A2E]">Do Ngoc Kim Ngan</span>
+                </h1>
+                <p class="text-base md:text-lg text-[#666] leading-relaxed max-w-xl mx-auto md:mx-0">
+                    A dedicated Animal Science graduate currently pursuing a Master's degree in Veterinary Medicine, with hands-on internship experience at leading agricultural corporations including JAPFA and CJ Vietnam.
+                </p>
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="cv.pdf" download
+                       class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#2D3A2E] text-white rounded-full font-medium hover:bg-[#7C8C6E] transition-colors duration-300 shadow-lg shadow-[#2D3A2E]/10">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        Download CV
+                    </a>
+                    <a href="#contact"
+                       class="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-[#7C8C6E] text-[#7C8C6E] rounded-full font-medium hover:bg-[#7C8C6E] hover:text-white transition-colors duration-300">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Profile Photo -->
+            <div class="md:w-2/5 flex justify-center">
+                <div class="relative">
+                    <!-- Decorative background shape -->
+                    <div class="absolute -inset-4 bg-[#E8EDE4] rounded-3xl -rotate-3"></div>
+                    <!-- Subtle vet pattern overlay on frame -->
+                    <div class="absolute -inset-4 rounded-3xl -rotate-3 overflow-hidden">
+                        <svg class="absolute bottom-2 right-2 w-10 h-10 text-[#7C8C6E] opacity-10" viewBox="0 0 100 100" fill="currentColor">
+                            <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+                            <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+                            <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+                            <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+                            <ellipse cx="50" cy="62" rx="20" ry="22"/>
+                        </svg>
+                    </div>
+                    <img src="https://i.ibb.co/Mk6Yxc7Q/dongan.jpg"
+                         alt="Do Ngoc Kim Ngan - Veterinary Science Professional"
+                         class="relative w-64 h-80 md:w-72 md:h-[22rem] object-cover object-top rounded-2xl shadow-xl">
+
+                    <!-- Stethoscope badge overlay -->
+                    <div class="absolute -bottom-3 -right-3 w-14 h-14 bg-white rounded-2xl shadow-lg flex items-center justify-center heartbeat">
+                        <svg class="w-7 h-7 text-[#7C8C6E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>
+                            <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/>
+                            <circle cx="20" cy="10" r="2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== ABOUT SECTION ===================== -->
+    <section id="about" class="fade-up max-w-6xl mx-auto px-6 py-16">
+        <div class="bg-white rounded-3xl shadow-sm p-8 md:p-12 relative overflow-hidden">
+            <!-- Decorative vet pattern in corner -->
+            <svg class="absolute top-6 right-6 w-20 h-20 text-[#E8EDE4] opacity-40" viewBox="0 0 100 100" fill="currentColor">
+                <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+                <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+                <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+                <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+                <ellipse cx="50" cy="62" rx="20" ry="22"/>
+            </svg>
+
+            <!-- Section Header -->
+            <div class="flex items-center gap-3 mb-10">
+                <div class="w-10 h-10 bg-[#E8EDE4] rounded-xl flex items-center justify-center">
+                    <i data-lucide="user" class="w-5 h-5 text-[#7C8C6E]"></i>
+                </div>
+                <h2 class="text-2xl font-semibold">About Me</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 relative z-10">
+                <!-- Personal Information -->
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-[#F7F6F1]">
+                        <i data-lucide="badge-check" class="w-5 h-5 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                        <div><span class="text-sm text-[#999]">Full Name</span><p class="font-medium">Do Ngoc Kim Ngan</p></div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-[#F7F6F1]">
+                        <i data-lucide="calendar" class="w-5 h-5 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                        <div><span class="text-sm text-[#999]">Year of Birth</span><p class="font-medium">2003</p></div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-[#F7F6F1]">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                        <div><span class="text-sm text-[#999]">Address</span><p class="font-medium">Binh Thuy District, Can Tho City, Vietnam</p></div>
+                    </div>
+                    <div class="flex items-start gap-3 p-4 rounded-xl bg-[#F7F6F1]">
+                        <i data-lucide="mail" class="w-5 h-5 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                        <div><span class="text-sm text-[#999]">Email</span><p class="font-medium">dongan2003.vn@gmail.com</p></div>
+                    </div>
+                </div>
+
+                <!-- Career Objective -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-[#7C8C6E] flex items-center gap-2">
+                        Career Objective
+                        <!-- Small DNA icon -->
+                        <svg class="w-5 h-5 text-[#A8B89C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 15c6.667-6 13.333 0 20-6"/>
+                            <path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"/>
+                            <path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"/>
+                            <path d="M17 6l-2.5-2.5"/>
+                            <path d="M14 8l-1-1"/>
+                            <path d="M7 18l2.5 2.5"/>
+                            <path d="M3.5 14.5l.5.5"/>
+                            <path d="M20 9l.5.5"/>
+                            <path d="M6.5 12.5l1 1"/>
+                            <path d="M16.5 10.5l1 1"/>
+                            <path d="M10 16l1.5 1.5"/>
+                        </svg>
+                    </h3>
+                    <p class="text-[#555] leading-relaxed">
+                        An Animal Science graduate currently advancing my expertise through a Master's program in Veterinary Medicine. With substantial internship experience at major corporations such as JAPFA and CJ, I aspire to become a highly skilled Technical Specialist, contributing to biosecurity protocols and optimizing livestock production efficiency within the industry.
+                    </p>
+                    <div class="mt-4 p-4 bg-[#E8EDE4]/50 rounded-xl border border-[#E8EDE4]">
+                        <p class="text-sm text-[#7C8C6E] font-medium flex items-center gap-2">
+                            <i data-lucide="target" class="w-4 h-4"></i>
+                            Target Role: Technical Specialist in Livestock Production & Biosecurity
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== SKILLS SECTION ===================== -->
+    <section id="skills" class="fade-up max-w-6xl mx-auto px-6 py-16">
+        <div class="bg-white rounded-3xl shadow-sm p-8 md:p-12 relative overflow-hidden">
+            <!-- Decorative microscope icon -->
+            <svg class="absolute bottom-4 right-4 w-24 h-24 text-[#E8EDE4] opacity-30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 18h8"/>
+                <path d="M3 22h18"/>
+                <path d="M14 22a7 7 0 1 0 0-14h-1"/>
+                <path d="M9 14h2"/>
+                <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/>
+                <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
+            </svg>
+
+            <!-- Section Header -->
+            <div class="flex items-center gap-3 mb-10">
+                <div class="w-10 h-10 bg-[#E8EDE4] rounded-xl flex items-center justify-center">
+                    <i data-lucide="sparkles" class="w-5 h-5 text-[#7C8C6E]"></i>
+                </div>
+                <h2 class="text-2xl font-semibold">Professional Skills</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                <!-- Technical Skills -->
+                <div class="group p-6 rounded-2xl bg-[#F7F6F1] hover:bg-[#E8EDE4] transition-colors duration-300">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:shadow-md transition">
+                        <!-- Stethoscope SVG -->
+                        <svg class="w-6 h-6 text-[#7C8C6E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>
+                            <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/>
+                            <circle cx="20" cy="10" r="2"/>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold mb-2">Technical</h4>
+                    <p class="text-sm text-[#666] leading-relaxed">Biosecurity management, Industrial livestock production processes</p>
+                </div>
+
+                <!-- Software Skills -->
+                <div class="group p-6 rounded-2xl bg-[#F7F6F1] hover:bg-[#E8EDE4] transition-colors duration-300">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:shadow-md transition">
+                        <i data-lucide="monitor" class="w-6 h-6 text-[#7C8C6E]"></i>
+                    </div>
+                    <h4 class="font-semibold mb-2">Software</h4>
+                    <p class="text-sm text-[#666] leading-relaxed">Microsoft Office Suite (Word, Excel, PowerPoint)</p>
+                </div>
+
+                <!-- Language Skills -->
+                <div class="group p-6 rounded-2xl bg-[#F7F6F1] hover:bg-[#E8EDE4] transition-colors duration-300">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:shadow-md transition">
+                        <i data-lucide="languages" class="w-6 h-6 text-[#7C8C6E]"></i>
+                    </div>
+                    <h4 class="font-semibold mb-2">Languages</h4>
+                    <p class="text-sm text-[#666] leading-relaxed">Conversational English, Technical literature reading proficiency</p>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="group p-6 rounded-2xl bg-[#F7F6F1] hover:bg-[#E8EDE4] transition-colors duration-300">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:shadow-md transition">
+                        <i data-lucide="users" class="w-6 h-6 text-[#7C8C6E]"></i>
+                    </div>
+                    <h4 class="font-semibold mb-2">Soft Skills</h4>
+                    <p class="text-sm text-[#666] leading-relaxed">HR management, B2 driver's license, Teamwork under pressure</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== PROFESSIONAL EXPERIENCE ===================== -->
+    <section id="experience" class="fade-up max-w-6xl mx-auto px-6 py-16">
+        <div class="bg-white rounded-3xl shadow-sm p-8 md:p-12 relative overflow-hidden">
+            <!-- Decorative heartbeat line -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#A8B89C]/30 to-transparent"></div>
+
+            <!-- Section Header -->
+            <div class="flex items-center gap-3 mb-10">
+                <div class="w-10 h-10 bg-[#E8EDE4] rounded-xl flex items-center justify-center">
+                    <i data-lucide="briefcase" class="w-5 h-5 text-[#7C8C6E]"></i>
+                </div>
+                <h2 class="text-2xl font-semibold">Professional Experience</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- JAPFA Vietnam -->
+                <div class="relative p-6 rounded-2xl border-2 border-[#E8EDE4] hover:border-[#A8B89C] transition-colors duration-300 group">
+                    <!-- Vet-themed corner decoration -->
+                    <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg class="w-8 h-8 text-[#A8B89C] opacity-30" viewBox="0 0 100 100" fill="currentColor">
+                            <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+                            <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+                            <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+                            <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+                            <ellipse cx="50" cy="62" rx="20" ry="22"/>
+                        </svg>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="px-3 py-1 text-xs font-medium text-[#7C8C6E] bg-[#E8EDE4] rounded-full uppercase tracking-wider">Technical Intern</span>
+                    </div>
+                    <h4 class="text-lg font-bold mt-2 mb-4 text-[#2D3A2E]">JAPFA Vietnam</h4>
+                    <ul class="space-y-3 text-sm text-[#555]">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                            <span>Operated industrial livestock production systems and managed biosecurity control protocols.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                            <span>Monitored and classified herd health status; assisted in implementing disease prevention programs.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                            <span>Compiled and reported periodic growth index and feed consumption data.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CJ Vietnam -->
+                <div class="relative p-6 rounded-2xl border-2 border-[#E8EDE4] hover:border-[#A8B89C] transition-colors duration-300 group">
+                    <!-- Vet-themed corner decoration -->
+                    <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg class="w-8 h-8 text-[#A8B89C] opacity-30" viewBox="0 0 100 100" fill="currentColor">
+                            <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+                            <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+                            <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+                            <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+                            <ellipse cx="50" cy="62" rx="20" ry="22"/>
+                        </svg>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="px-3 py-1 text-xs font-medium text-[#7C8C6E] bg-[#E8EDE4] rounded-full uppercase tracking-wider">Technical Intern</span>
+                    </div>
+                    <h4 class="text-lg font-bold mt-2 mb-4 text-[#2D3A2E]">CJ Vietnam</h4>
+                    <ul class="space-y-3 text-sm text-[#555]">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                            <span>Performed animal care and feeding techniques in compliance with international standards.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                            <span>Supported vaccination campaigns, epidemiological surveillance, and farm sanitation procedures.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#7C8C6E] mt-0.5 shrink-0"></i>
+                            <span>Gained experience in a highly disciplined work environment, reporting directly to farm management.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== EDUCATION & CERTIFICATIONS ===================== -->
+    <section id="education" class="fade-up max-w-6xl mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Education -->
+            <div class="bg-white rounded-3xl shadow-sm p-8 md:p-10 relative overflow-hidden">
+                <!-- Decorative graduation cap pattern -->
+                <svg class="absolute bottom-4 right-4 w-16 h-16 text-[#E8EDE4] opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 bg-[#E8EDE4] rounded-xl flex items-center justify-center">
+                        <i data-lucide="graduation-cap" class="w-5 h-5 text-[#7C8C6E]"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold">Education</h2>
+                </div>
+
+                <!-- Timeline -->
+                <div class="space-y-6 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-0.5 before:bg-[#E8EDE4]">
+                    <div class="pl-8 relative">
+                        <div class="absolute left-0 top-1.5 w-4 h-4 bg-[#7C8C6E] rounded-full border-4 border-[#E8EDE4]"></div>
+                        <span class="text-xs font-medium text-[#999]">2025 – 2027</span>
+                        <h4 class="font-semibold text-[#2D3A2E]">Master of Veterinary Medicine</h4>
+                        <p class="text-sm text-[#666]">Currently enrolled</p>
+                    </div>
+                    <div class="pl-8 relative">
+                        <div class="absolute left-0 top-1.5 w-4 h-4 bg-[#A8B89C] rounded-full border-4 border-[#E8EDE4]"></div>
+                        <span class="text-xs font-medium text-[#999]">2021 – 2025</span>
+                        <h4 class="font-semibold text-[#2D3A2E]">Can Tho University</h4>
+                        <p class="text-sm text-[#666]">Bachelor of Animal Science</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="bg-white rounded-3xl shadow-sm p-8 md:p-10 relative overflow-hidden">
+                <!-- Decorative shield icon -->
+                <svg class="absolute bottom-4 right-4 w-16 h-16 text-[#E8EDE4] opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                </svg>
+
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 bg-[#E8EDE4] rounded-xl flex items-center justify-center">
+                        <i data-lucide="award" class="w-5 h-5 text-[#7C8C6E]"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold">Certifications</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3 p-4 rounded-xl bg-[#F7F6F1]">
+                        <i data-lucide="file-badge" class="w-5 h-5 text-[#7C8C6E] shrink-0"></i>
+                        <span class="text-sm font-medium">English B1 Certificate | IT Certificate B</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 rounded-xl bg-[#F7F6F1]">
+                        <i data-lucide="file-badge" class="w-5 h-5 text-[#7C8C6E] shrink-0"></i>
+                        <span class="text-sm font-medium">Human Resources Management Certificate</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 rounded-xl bg-[#F7F6F1]">
+                        <i data-lucide="file-badge" class="w-5 h-5 text-[#7C8C6E] shrink-0"></i>
+                        <span class="text-sm font-medium">B2 Driver's License</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== CONTACT / FOOTER SECTION ===================== -->
+    <section id="contact" class="fade-up max-w-6xl mx-auto px-6 py-16">
+        <div class="bg-[#2D3A2E] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <!-- Decorative vet elements on dark background -->
+            <svg class="absolute top-6 right-6 w-28 h-28 text-white opacity-[0.03]" viewBox="0 0 100 100" fill="currentColor">
+                <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+                <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+                <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+                <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+                <ellipse cx="50" cy="62" rx="20" ry="22"/>
+            </svg>
+            <svg class="absolute bottom-6 left-6 w-20 h-20 text-white opacity-[0.03]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>
+                <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/>
+                <circle cx="20" cy="10" r="2"/>
+            </svg>
+
+            <!-- Heartbeat line decoration -->
+            <div class="absolute top-0 left-0 w-full overflow-hidden h-12 opacity-[0.06]">
+                <svg class="w-full h-12" viewBox="0 0 1200 50" fill="none" stroke="white" stroke-width="2">
+                    <polyline points="0,25 200,25 230,25 245,8 260,42 275,15 290,35 305,25 400,25 600,25 630,25 645,8 660,42 675,15 690,35 705,25 800,25 1000,25 1030,25 1045,8 1060,42 1075,15 1090,35 1105,25 1200,25"/>
+                </svg>
+            </div>
+
+            <div class="text-center mb-10 relative z-10">
+                <h2 class="text-3xl font-semibold mb-2 font-playfair">Let's Connect</h2>
+                <p class="text-[#A8B89C] text-sm">I'm always open to new opportunities and collaborations in veterinary science!</p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto relative z-10">
+                <!-- Phone -->
+                <div class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition">
+                    <div class="w-12 h-12 bg-[#7C8C6E] rounded-xl flex items-center justify-center">
+                        <i data-lucide="phone" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="text-sm text-[#ccc]">Phone</span>
+                    <a href="tel:0946446393" class="font-medium text-white hover:text-[#A8B89C] transition">0946 446 393</a>
+                </div>
+
+                <!-- Email -->
+                <div class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition">
+                    <div class="w-12 h-12 bg-[#7C8C6E] rounded-xl flex items-center justify-center">
+                        <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="text-sm text-[#ccc]">Email</span>
+                    <a href="mailto:dongan2003.vn@gmail.com" class="font-medium text-white hover:text-[#A8B89C] transition text-center break-all text-sm">dongan2003.vn@gmail.com</a>
+                </div>
+
+                <!-- Address -->
+                <div class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition">
+                    <div class="w-12 h-12 bg-[#7C8C6E] rounded-xl flex items-center justify-center">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="text-sm text-[#ccc]">Location</span>
+                    <span class="font-medium text-white text-center">Binh Thuy, Can Tho, Vietnam</span>
+                </div>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="flex justify-center gap-4 mt-10 relative z-10">
+                <a href="#" class="w-10 h-10 bg-white/10 hover:bg-[#7C8C6E] rounded-full flex items-center justify-center transition-colors duration-300" aria-label="Facebook">
+                    <i data-lucide="facebook" class="w-4 h-4 text-white"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-white/10 hover:bg-[#7C8C6E] rounded-full flex items-center justify-center transition-colors duration-300" aria-label="Instagram">
+                    <i data-lucide="instagram" class="w-4 h-4 text-white"></i>
+                </a>
+                <a href="mailto:dongan2003.vn@gmail.com" class="w-10 h-10 bg-white/10 hover:bg-[#7C8C6E] rounded-full flex items-center justify-center transition-colors duration-300" aria-label="Email">
+                    <i data-lucide="mail" class="w-4 h-4 text-white"></i>
+                </a>
+                <a href="tel:0946446393" class="w-10 h-10 bg-white/10 hover:bg-[#7C8C6E] rounded-full flex items-center justify-center transition-colors duration-300" aria-label="Phone">
+                    <i data-lucide="phone" class="w-4 h-4 text-white"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-xs text-[#aaa]">
+        <p class="flex items-center justify-center gap-1">
+            © 2025 Do Ngoc Kim Ngan — Designed with
+            <svg class="w-3 h-3 text-[#7C8C6E] inline" viewBox="0 0 100 100" fill="currentColor">
+                <ellipse cx="38" cy="22" rx="10" ry="13" transform="rotate(-15 38 22)"/>
+                <ellipse cx="62" cy="22" rx="10" ry="13" transform="rotate(15 62 22)"/>
+                <ellipse cx="24" cy="40" rx="8" ry="11" transform="rotate(-30 24 40)"/>
+                <ellipse cx="76" cy="40" rx="8" ry="11" transform="rotate(30 76 40)"/>
+                <ellipse cx="50" cy="62" rx="20" ry="22"/>
+            </svg>
+            & passion for animal care
+        </p>
+    </footer>
+
+
+    <!-- ===================== JAVASCRIPT ===================== -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Toggle Mobile Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar shadow effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Fade-up animation on scroll (Intersection Observer)
+        const fadeUpElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        fadeUpElements.forEach(el => observer.observe(el));
+
+        // Active link highlight based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav ul a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-[#7C8C6E]', 'font-semibold');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('text-[#7C8C6E]', 'font-semibold');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
